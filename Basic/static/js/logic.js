@@ -15,6 +15,8 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 function colorPick(mg) {
   switch(true) {
+      case mg < 1:
+          return '#00FF00';
       case mg < 2:
           return '#8D8741';
           break;
@@ -26,9 +28,6 @@ function colorPick(mg) {
           break;
       case mg < 5:
           return '#BC986A';
-          break;
-      case mg < 6:
-          return '#FBEEC1';
           break;
       default:
           return '#FF0000';
@@ -58,7 +57,7 @@ d3.json(queryUrl, data => {
       var div = L.DomUtil.create("div", "info legend"),
           mags = [0, 1, 2, 3, 4, 5]; 
       
-          // loop through our density intervals and generate a label with a colored square for each interval
+          // loop through our intervals and generate a label with a colored square for each interval
           for (var i = 0; i < mags.length; i++) {
               div.innerHTML += '<i style= "background:' + colorPick(mags[i] + 1) + '"></i> ' + mags[i] + (mags[i + 1] ? '&ndash;' + mags[i + 1] + '<br>' : '+');
           }

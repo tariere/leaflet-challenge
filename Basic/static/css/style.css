@@ -3,8 +3,24 @@ body {
   margin: 0;
 }
 
-#map,
+#map-id,
 body,
 html {
   height: 100%;
+  width: 100%;
+}
+
+.legend i {
+  float: left; 
+  width: 15px; 
+  height: 15px; 
+  margin-right: 10px; 
+}
+
+.legend {
+  padding: 10px; 
+  border-radius: 5px;
+  width: 75px;
+  height: 100px;
+  background-color: white;
 }
